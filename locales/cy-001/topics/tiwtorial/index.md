@@ -63,10 +63,10 @@ Ewch yn ôl i'ch terfynell gyntaf a rhedeg:
 
 ```sh
 PAS_PASETO_KEYS_URL=http://127.0.0.1:8195/keys.json PAS_REQUIRE_AUTH=true \
-  cargo run -p patient-administration-system
+  cargo run -p patient-administration-system --bin patient-administration-system
 ```
 
-Pan fydd wedi dechrau, agorwch <http://localhost:8080/swagger-ui/> mewn porwr. Mae'r dudalen hon yn dogfennu'r API.
+Pan fydd wedi dechrau, agorwch <http://localhost:8080/api/health> mewn porwr i gadarnhau ei fod yn rhedeg. Mae Swagger UI yn `/swagger-ui/` yn gofyn am docyn yn y modd hwn, felly mae'n dychwelyd 401.
 
 ## Cam 7: Dechrau'r rhyngwyneb gwe
 

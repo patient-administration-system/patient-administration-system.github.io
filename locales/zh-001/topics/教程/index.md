@@ -63,10 +63,10 @@ sh scripts/dev-auth.sh
 
 ```sh
 PAS_PASETO_KEYS_URL=http://127.0.0.1:8195/keys.json PAS_REQUIRE_AUTH=true \
-  cargo run -p patient-administration-system
+  cargo run -p patient-administration-system --bin patient-administration-system
 ```
 
-启动后，在浏览器中打开 <http://localhost:8080/swagger-ui/>。此页面提供 API 文档。
+启动后，在浏览器中打开 <http://localhost:8080/api/health>，确认其正在运行。在此模式下，位于 `/swagger-ui/` 的 Swagger UI 需要令牌，因此会返回 401。
 
 ## 第 7 步：启动网页界面
 

@@ -62,10 +62,10 @@ In the first terminal, run:
 
 ```sh
 PAS_PASETO_KEYS_URL=http://127.0.0.1:8195/keys.json PAS_REQUIRE_AUTH=true \
-  cargo run -p patient-administration-system
+  cargo run -p patient-administration-system --bin patient-administration-system
 ```
 
-When it has started, open <http://localhost:8080/swagger-ui/> in a browser. This page documents the API.
+When it has started, open <http://localhost:8080/api/health> in a browser to confirm that it is running. Swagger UI at `/swagger-ui/` requires a token in this mode, so it returns 401.
 
 ## Step 7: Start the web interface
 
