@@ -1,5 +1,6 @@
 node_modules/
 build/
+static/themes/
 .svelte-kit/
 test-results/
 playwright-report/

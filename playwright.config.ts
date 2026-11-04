@@ -10,6 +10,6 @@ export default defineConfig({
   webServer: {
     command: `node tests/e2e/serve-build.mjs ${PORT}`,
     port: PORT,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
   },
 });

@@ -1,14 +1,10 @@
 <script lang="ts">
-  import { SITE_URL } from "./site";
+  import { page } from "$app/state";
+  import { SITE_URL } from "./constants";
 
-  let {
-    title,
-    description,
-    path,
-    noindex = false,
-  }: { title: string; description: string; path: string; noindex?: boolean } = $props();
+  let { title, description, noindex = false }: { title: string; description: string; noindex?: boolean } = $props();
 
-  const fullTitle = $derived(path === "/" ? title : `${title} | Patient Administration System`);
+  const fullTitle = $derived(page.data.isHome ? title : `${title} | ${page.data.brand}`);
 </script>
 
 <svelte:head>
@@ -17,7 +13,10 @@
   {#if noindex}
     <meta name="robots" content="noindex" />
   {:else}
-    <link rel="canonical" href={`${SITE_URL}${path === "/" ? "" : path}`} />
+    <link rel="canonical" href={`${SITE_URL}${page.data.canonical}`} />
+    {#each page.data.alternates as alternate (alternate.locale)}
+      <link rel="alternate" hreflang={alternate.locale} href={`${SITE_URL}${alternate.href}`} />
+    {/each}
   {/if}
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />

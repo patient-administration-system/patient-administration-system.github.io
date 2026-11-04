@@ -1,7 +1,9 @@
 build/
+static/themes/
 .svelte-kit/
 node_modules/
 test-results/
 playwright-report/
 pnpm-lock.yaml
 LICENSE/
+locales/

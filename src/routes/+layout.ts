@@ -1,3 +1,5 @@
-// Every page is plain HTML written at build time: no server, and no JavaScript in the browser.
+// Every page is plain HTML written at build time; there is no server. The browser code is what the picker bar and
+// the search page need. `trailingSlash` gives each page its own index.html, which GitHub Pages serves unambiguously
+// where a language folder and a language home page would otherwise share a name.
 export const prerender = true;
-export const csr = false;
+export const trailingSlash = "always";

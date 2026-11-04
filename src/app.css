@@ -1,12 +1,16 @@
-/* Site layout on top of a Lily theme. The theme is the neutral `corporate` one, deliberately not an NHS theme,
- * with its primary darkened: white on the stock primary is below 4.5:1. */
-:root {
+/* Site layout on top of a Lily theme. The theme picker swaps the stylesheet, so everything here is built from the
+ * theme's tokens. The default theme is the neutral `corporate` one with its primary darkened: white on the stock
+ * primary is below 4.5:1. */
+:root:not([data-theme]),
+:root[data-theme="corporate"] {
   --color-primary: oklch(39% 0.07 200);
   --color-primary-content: oklch(100% 0 0);
+}
+:root {
   --site-width: 68rem;
-  --site-soft: oklch(96.5% 0.012 200);
-  --site-line: oklch(88% 0.012 200);
-  --site-muted: oklch(44% 0.02 240);
+  --site-soft: color-mix(in oklch, var(--color-base-content) 6%, var(--color-base-100));
+  --site-line: color-mix(in oklch, var(--color-base-content) 16%, var(--color-base-100));
+  --site-muted: color-mix(in oklch, var(--color-base-content) 78%, var(--color-base-100));
   font-family:
     system-ui,
     -apple-system,
@@ -22,6 +26,25 @@ body {
 }
 main:focus {
   outline: none;
+}
+/* The text size picker sets this attribute. Everything on the site is sized in rem. */
+:root[data-text-size="largest"] {
+  font-size: 150%;
+}
+:root[data-text-size="larger"] {
+  font-size: 131%;
+}
+:root[data-text-size="large"] {
+  font-size: 115%;
+}
+:root[data-text-size="small"] {
+  font-size: 90%;
+}
+:root[data-text-size="smaller"] {
+  font-size: 81%;
+}
+:root[data-text-size="smallest"] {
+  font-size: 72%;
 }
 a {
   color: var(--color-primary);
@@ -96,6 +119,35 @@ code {
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
+.site-pickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding-block: 0 0.75rem;
+}
+.site-draft {
+  padding-block: 1rem;
+}
+.site-draft .inset-text {
+  padding: 0.5rem 1rem;
+  background: var(--site-soft);
+  border-left: 5px solid var(--color-primary);
+  font-size: 0.95rem;
+}
+.site-draft .inset-text p {
+  margin: 0;
+}
+.site-results {
+  list-style: none;
+  padding: 0;
+}
+.site-results li {
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--site-line);
+}
+.site-results p {
+  margin: 0.25rem 0 0;
+}
 .site-footer {
   background: var(--site-soft);
   border-top: 1px solid var(--site-line);
@@ -132,9 +184,35 @@ code {
   margin: 0 0 1rem;
   max-width: 15em;
 }
-.site-kicker {
-  margin: 0 0 0.75rem;
+.site-subheadline {
+  font-size: 1.35rem;
   font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+.site-translations {
+  margin: 1.25rem 0 0;
+  font-size: 0.95rem;
+}
+.site-hero .site-translations a {
+  color: inherit;
+}
+.site-page ol,
+.site-page ul {
+  padding-left: 1.25rem;
+}
+.site-page li {
+  margin-block: 0.35rem;
+}
+.site-page table strong {
+  font-weight: 600;
+}
+.site-page table code,
+.site-page .card code {
+  overflow-wrap: anywhere;
+}
+.picker-bar button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
 }
 .site-actions {
   display: flex;
@@ -193,7 +271,7 @@ code {
 .site-cards {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
   margin-top: 1rem;
 }
 .site-page .card {
@@ -210,6 +288,9 @@ code {
 .site-page .card p {
   margin: 0;
 }
+.site-page p {
+  max-width: 48rem;
+}
 .site-links {
   padding-left: 1.25rem;
 }
@@ -223,12 +304,15 @@ code {
   width: 100%;
   border-collapse: collapse;
 }
-.site-page .table-th,
-.site-page .table-td {
-  padding: 0.6rem 0.75rem 0.6rem 0;
+.site-page .table th,
+.site-page .table td {
+  padding: 0.6rem 0.75rem;
   border-bottom: 1px solid var(--site-line);
   text-align: left;
   vertical-align: top;
+}
+.site-page .table th {
+  background: var(--site-soft);
 }
 .site-page .summary-list {
   display: block;

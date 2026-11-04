@@ -32,10 +32,10 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm audit --prod --audit-level high
-      - run: pnpm run status:sync
       - run: pnpm run check
       - run: pnpm run lint
       - run: pnpm test
+      - run: pnpm run status:sync
       - run: pnpm run build
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm exec playwright test

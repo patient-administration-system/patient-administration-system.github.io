@@ -1,11 +1,5 @@
 import status from "./status.json";
-
-export const retrievedOn = new Date(status.retrievedOn).toLocaleDateString("en-GB", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-  timeZone: "UTC",
-});
+import type { Locale } from "./locales";
 
 /** A measure from spec/14-implementation-status.md. A renamed measure fails the build rather than showing nothing. */
 export function measure(name: string): number {
@@ -14,4 +8,10 @@ export function measure(name: string): number {
   return value;
 }
 
-export const allMeasures = Object.entries(status.measures as Record<string, number>);
+export function formatDate(iso: string, locale: Locale): string {
+  return new Date(iso).toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+}
+
+export function retrievedOn(locale: Locale): string {
+  return formatDate(status.retrievedOn, locale);
+}
