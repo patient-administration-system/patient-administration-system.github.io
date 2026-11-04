@@ -1,6 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 
 // Every address in the sitemap, plus the pages that are not in it.
 const sitemap = readFileSync("build/sitemap.xml", "utf8");
@@ -29,6 +30,26 @@ for (const path of [...paths, "/search/", "/does-not-exist/"]) {
     expect(problems).toEqual([]);
   });
 }
+
+test("every link in the built pages is real", () => {
+  const pages = readdirSync("build", { recursive: true, encoding: "utf8" }).filter((file) => file.endsWith(".html"));
+  const broken: string[] = [];
+  let checked = 0;
+  for (const file of pages) {
+    const html = readFileSync(join("build", file), "utf8");
+    for (const [, href = ""] of html.matchAll(/<a [^>]*href="([^"]*)"/g)) {
+      checked += 1;
+      if (/^[a-z]+:/.test(href) && !/^(https?|mailto):/.test(href)) broken.push(`${file}: ${href}`);
+      if (href.startsWith("/")) {
+        const path = decodeURI(href.split(/[?#]/)[0] ?? "");
+        const exists = existsSync(join("build", path, "index.html")) || existsSync(join("build", path));
+        if (!exists) broken.push(`${file}: ${href}`);
+      }
+    }
+  }
+  expect(broken).toEqual([]);
+  expect(checked).toBeGreaterThan(1000);
+});
 
 test("the requested comparison addresses exist at the root", async ({ page }) => {
   for (const slug of ["epic", "nervecentre"]) {

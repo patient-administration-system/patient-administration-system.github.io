@@ -29,9 +29,6 @@ function resolveHref(href: string, locale: Locale): string {
 function createMarked(locale: Locale): Marked {
   const marked = new Marked({
     gfm: true,
-    walkTokens(token) {
-      if (token.type === "link") (token as Tokens.Link).href = resolveHref((token as Tokens.Link).href, locale);
-    },
     renderer: {
       blockquote({ tokens }) {
         return `<div class="inset-text" role="note">${this.parser.parse(tokens)}</div>`;
@@ -72,7 +69,9 @@ function renderSection(marked: Marked, tokens: Token[]): string {
 export function renderPage(page: Page): string {
   const marked = createMarked(page.locale);
   const tokens = marked.lexer(fillValues(page.body, page.locale));
-  marked.walkTokens(tokens, () => undefined);
+  marked.walkTokens(tokens, (token) => {
+    if (token.type === "link") (token as Tokens.Link).href = resolveHref((token as Tokens.Link).href, page.locale);
+  });
   const sections: Token[][] = [[]];
   for (const token of tokens) {
     if (token.type === "heading" && (token as Tokens.Heading).depth === 2) sections.push([]);
