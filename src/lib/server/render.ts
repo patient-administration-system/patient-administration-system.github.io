@@ -26,7 +26,7 @@ function resolveHref(href: string, locale: Locale): string {
   return href;
 }
 
-function createMarked(locale: Locale): Marked {
+function createMarked(): Marked {
   const marked = new Marked({
     gfm: true,
     renderer: {
@@ -67,7 +67,7 @@ function renderSection(marked: Marked, tokens: Token[]): string {
 }
 
 export function renderPage(page: Page): string {
-  const marked = createMarked(page.locale);
+  const marked = createMarked();
   const tokens = marked.lexer(fillValues(page.body, page.locale));
   marked.walkTokens(tokens, (token) => {
     if (token.type === "link") (token as Tokens.Link).href = resolveHref((token as Tokens.Link).href, page.locale);
