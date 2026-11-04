@@ -14,7 +14,7 @@ Cwmni o'r Unol Daleithiau yw Epic sy'n cyflenwi cofnodion cleifion electronig. A
 | **Beth ydyw** | Cofnod claf electronig ar gyfer yr ysbyty cyfan | Gweinyddu cleifion yn unig |
 | **Cofnod clinigol** | Ydy | Nac ydy, yn fwriadol |
 | **Yn cael ei ddefnyddio gyda chleifion go iawn** | Ydy, gan gynnwys mewn ymddiriedolaethau GIG | Ddim eto |
-| **Cod ffynhonnell** | Ddim yn gyhoeddus | Cyhoeddus, trwyddedau cod agored |
+| **Cod ffynhonnell** | Ddim yn gyhoeddus, hyd y gwyddom | Cyhoeddus, trwyddedau cod agored |
 | **Cymorth cyflenwr** | Oes | Dim eto |
 
 ## Addasrwydd

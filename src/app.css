@@ -1,22 +1,38 @@
 /* Site layout on top of a Lily theme. The theme picker swaps the stylesheet, so everything here is built from the
  * theme's tokens. The default theme is the neutral `corporate` one with its primary darkened: white on the stock
  * primary is below 4.5:1. */
-:root:not([data-theme]),
-:root[data-theme="corporate"] {
-  --color-primary: oklch(39% 0.07 200);
-  --color-primary-content: oklch(100% 0 0);
-}
 :root {
+  /* A theme's primary is not always readable on its page colour, so links use the text colour plus an underline. */
+  --site-link: var(--color-base-content);
+  --site-hero: var(--color-primary);
+  --site-hero-text: var(--color-primary-content);
   --site-width: 68rem;
   --site-soft: color-mix(in oklch, var(--color-base-content) 6%, var(--color-base-100));
   --site-line: color-mix(in oklch, var(--color-base-content) 16%, var(--color-base-100));
-  --site-muted: color-mix(in oklch, var(--color-base-content) 78%, var(--color-base-100));
+  --site-muted: color-mix(in oklch, var(--color-base-content) 90%, var(--color-base-100));
   font-family:
     system-ui,
     -apple-system,
     "Segoe UI",
     Roboto,
     sans-serif;
+}
+:root:not([data-theme]),
+:root[data-theme="corporate"] {
+  --color-primary: oklch(39% 0.07 200);
+  --color-primary-content: oklch(100% 0 0);
+  --site-link: var(--color-primary);
+}
+/* winter pairs its primary with a pale text colour that fails contrast. */
+:root[data-theme="winter"] {
+  --color-primary-content: oklch(100% 0 0);
+}
+/* These themes' primary pairs also fail on the hero, so it uses their page colours instead. */
+:root[data-theme="dark"],
+:root[data-theme="garden"],
+:root[data-theme="valentine"] {
+  --site-hero: var(--color-base-200);
+  --site-hero-text: var(--color-base-content);
 }
 body {
   margin: 0;
@@ -47,11 +63,12 @@ main:focus {
   font-size: 72%;
 }
 a {
-  color: var(--color-primary);
+  color: var(--site-link);
+  text-decoration: underline;
   text-underline-offset: 0.15em;
 }
 a:focus-visible {
-  outline: 3px solid var(--color-primary);
+  outline: 3px solid var(--site-link);
   outline-offset: 2px;
 }
 code {
@@ -167,14 +184,20 @@ code {
   margin: 0;
   padding: 0;
 }
+/* In pixels, because the denser themes shrink the rem below the 24-pixel target size. */
+.site-footer a {
+  display: inline-block;
+  min-height: 24px;
+  line-height: 24px;
+}
 
 /* Home */
 .site-hero {
   display: block;
   padding: 3.5rem 0;
   border-radius: 0;
-  background: var(--color-primary);
-  color: var(--color-primary-content);
+  background: var(--site-hero);
+  color: var(--site-hero-text);
   text-align: left;
 }
 .site-hero h1 {
@@ -225,19 +248,19 @@ code {
   align-items: center;
   margin: 0;
   padding: 0.65rem 1.15rem;
-  border: 2px solid var(--color-primary-content);
+  border: 2px solid var(--site-hero-text);
   border-radius: 6px;
-  background: var(--color-primary-content);
-  color: var(--color-primary);
+  background: var(--site-hero-text);
+  color: var(--site-hero);
   font-weight: 600;
   text-decoration: none;
 }
 .site-button-quiet {
   background: transparent;
-  color: var(--color-primary-content);
+  color: var(--site-hero-text);
 }
 .site-button:focus-visible {
-  outline-color: var(--color-primary-content);
+  outline-color: var(--site-hero-text);
 }
 .site-stats {
   display: grid;
@@ -336,10 +359,14 @@ code {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+.site-page .code-block,
+.site-page .code-block pre,
+.site-page .code-block code {
+  background: var(--color-base-200);
+  color: var(--color-base-content);
+}
 .site-page .code-block pre {
   margin: 0;
-  background: transparent;
-  color: inherit;
 }
 
 /* Architecture layers */

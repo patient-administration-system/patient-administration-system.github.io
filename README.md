@@ -18,6 +18,7 @@ pnpm run dev
 ```sh
 pnpm run check && pnpm run lint && pnpm test
 pnpm run build && pnpm exec playwright test   # axe and 320-pixel reflow on every page, then each picker
+THEME_SWEEP=1 pnpm exec playwright test -g "every theme"   # axe on five pages in all 57 themes; slow
 ```
 
 ## Publish it

@@ -13,7 +13,7 @@ Epic is a US company that supplies electronic patient records. King's College Ho
 | **What it is** | A whole-hospital electronic patient record | Patient administration only |
 | **Clinical record** | Yes | No, by design |
 | **In use with real patients** | Yes, including in NHS trusts | Not yet |
-| **Source code** | Not public | Public, open-source licences |
+| **Source code** | Not public, as far as we can find | Public, open-source licences |
 | **Supplier support** | Yes | None yet |
 
 ## Suitability

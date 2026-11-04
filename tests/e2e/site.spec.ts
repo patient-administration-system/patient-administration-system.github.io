@@ -132,6 +132,28 @@ test("all 57 themes are published", () => {
   expect(readdirSync("build/themes").filter((file) => file.endsWith(".css"))).toHaveLength(57);
 });
 
+// Slow, so it runs on request: THEME_SWEEP=1 pnpm exec playwright test -g "every theme".
+test("every theme passes axe on five pages", async ({ page }) => {
+  test.skip(!process.env.THEME_SWEEP);
+  test.setTimeout(20 * 60_000);
+  const themes = readdirSync("build/themes").map((file) => file.replace(/\.css$/, ""));
+  const failures: string[] = [];
+  await page.goto("/");
+  for (const theme of themes) {
+    await page.evaluate((name) => localStorage.setItem("pas-site-theme", name), theme);
+    for (const path of ["/", "/compare/", "/compare/epic/", "/tutorial/", "/trust/"]) {
+      await page.goto(path, { waitUntil: "domcontentloaded", timeout: 60_000 });
+      await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+      await page.waitForTimeout(150);
+      const { violations } = await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+        .analyze();
+      failures.push(...violations.map((v) => `${theme} ${path} ${v.id}: ${v.nodes[0]?.html}`));
+    }
+  }
+  expect(failures).toEqual([]);
+});
+
 test("the text size picker changes the size of the text", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Text size" }).click();
