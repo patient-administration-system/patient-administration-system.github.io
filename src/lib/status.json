@@ -1,0 +1,18 @@
+{
+  "retrievedOn": "2026-11-04",
+  "measures": {
+    "Rust test functions (server, front-end, migrations)": 1053,
+    "of which #[ignore]d (need PostgreSQL)": 401,
+    "Server route registrations": 298,
+    "Migrations": 57,
+    "UI page routes": 13,
+    "UI unit test files": 22,
+    "UI browser spec files": 14,
+    "UI locale catalogues": 10,
+    "Functional requirements": 196,
+    "Non-functional requirements": 27,
+    "Requirements marked not yet tested or not yet built": 5,
+    "Tasks done": 147,
+    "Tasks open": 37
+  }
+}

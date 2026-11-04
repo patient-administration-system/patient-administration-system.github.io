@@ -1,0 +1,4 @@
+allowBuilds:
+  esbuild: true
+# Refuse any package version published less than a day ago (value in minutes), as the main repository does.
+minimumReleaseAge: 1440
