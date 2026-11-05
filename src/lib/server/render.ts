@@ -35,7 +35,7 @@ function createMarked(): Marked {
       },
       code({ text }) {
         const escaped = text.replaceAll("&", "&amp;").replaceAll("<", "&lt;");
-        return `<div class="code-block" tabindex="0"><pre lang="en"><code>${escaped}</code></pre></div>`;
+        return `<div class="code-block" tabindex="0"><pre lang="en" dir="ltr"><code>${escaped}</code></pre></div>`;
       },
     },
   });

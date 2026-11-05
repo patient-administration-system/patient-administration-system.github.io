@@ -1,7 +1,8 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { LOCALES, localePath, parsePath } from "../../src/lib/locales";
+import { LOCALES, localePath, parsePath, textDirection } from "../../src/lib/locales";
+import { formatDate } from "../../src/lib/status";
 
 function folders(folder: string): string[] {
   const children = readdirSync(folder, { withFileTypes: true }).filter((entry) => entry.isDirectory());
@@ -62,6 +63,22 @@ describe("American and Oxford spelling", () => {
     expect(text).toContain("organization");
     expect(text).not.toContain("organisation");
     expect(text).toContain("licence");
+  });
+});
+
+describe("direction, dates and digits", () => {
+  it("writes only Arabic right to left", () => {
+    expect(LOCALES.filter((locale) => textDirection(locale) === "rtl")).toEqual(["ar-001", "ar-sa"]);
+  });
+
+  it("gives every locale a Gregorian date in Western digits", () => {
+    for (const locale of LOCALES) {
+      const date = formatDate("2026-11-04", locale);
+      expect(date, locale).toContain("2026");
+
+      expect(date, locale).not.toMatch(/[\u0660-\u0669\u0966-\u096f]/);
+    }
+    expect(formatDate("2026-11-04", "ar-sa")).toContain("نوفمبر");
   });
 });
 

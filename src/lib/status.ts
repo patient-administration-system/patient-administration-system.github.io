@@ -9,7 +9,15 @@ export function measure(name: string): number {
 }
 
 export function formatDate(iso: string, locale: Locale): string {
-  return new Date(iso).toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  // ar-SA would otherwise give a Hijri date, and some locales give digits unlike the figures beside them.
+  return new Date(iso).toLocaleDateString(locale, {
+    calendar: "gregory",
+    numberingSystem: "latn",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 }
 
 export function retrievedOn(locale: Locale): string {

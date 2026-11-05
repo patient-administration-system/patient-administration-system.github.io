@@ -7,7 +7,7 @@
   import type { Snippet } from "svelte";
   import { REPO_URL } from "#lib/constants.js";
   import { ui } from "#lib/i18n.js";
-  import { LOCALES, LOCALE_LABELS, type Locale, localePath } from "#lib/locales.js";
+  import { LOCALES, LOCALE_LABELS, type Locale, localePath, textDirection } from "#lib/locales.js";
 
   let { data, children }: { data: import("./$types").LayoutData; children: Snippet } = $props();
 
@@ -27,6 +27,12 @@
     const target = data.alternates.find((alternate) => alternate.locale === (code as Locale));
     if (target) location.assign(target.href);
   }
+
+  // Footer and hero links to another locale go through the router, which leaves <html> as it was.
+  $effect(() => {
+    document.documentElement.lang = locale;
+    document.documentElement.dir = textDirection(locale);
+  });
 
   const email = (url: string, title: string) =>
     `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`;
@@ -93,6 +99,7 @@
           <a
             href={alternate.href}
             lang={alternate.locale}
+            dir={textDirection(alternate.locale)}
             hreflang={alternate.locale}
             aria-current={alternate.locale === locale ? "true" : undefined}>{LOCALE_LABELS[alternate.locale]}</a
           >

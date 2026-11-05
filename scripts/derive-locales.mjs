@@ -1,4 +1,4 @@
-// Locale copies, per the locale rule (spec/locale/index.md). Hand-written sources: en-001, cy-gb, zh-cn. Everything
+// Locale copies, per the locale rule (spec/locale/index.md). Hand-written sources: en-001, ar-sa, cy-gb, hi-in, zh-cn. Everything
 // else is derived, so that a copy cannot drift: `node scripts/derive-locales.mjs` writes them, and `--check` fails if
 // any differs. Also writes the README.md symlink and the .locale-peer-id of every page. A peer id is derived from the
 // en-001 path, so it is byte-identical across locales whatever the slug is.
@@ -58,7 +58,9 @@ const DERIVED = [
   ["en-001", "en-gb", same],
   ["en-001", "en-us", (text) => convert(text, US)],
   ["en-001", "en-gb-oxendict", (text) => convert(text, OXFORD)],
+  ["ar-sa", "ar-001", same],
   ["cy-gb", "cy-001", same],
+  ["hi-in", "hi-001", same],
   ["zh-cn", "zh-001", same],
 ];
 
@@ -102,7 +104,7 @@ for (const folder of pageFolders("en-001")) {
   put(join(folder, ".locale-peer-id"), `${peerId(path)}\n`);
   finish(folder);
 }
-for (const locale of ["cy-gb", "zh-cn"]) {
+for (const locale of ["ar-sa", "cy-gb", "hi-in", "zh-cn"]) {
   for (const folder of pageFolders(locale)) {
     const peer = readFileSync(join(folder, "index.md"), "utf8").match(/^peer: (.*)$/m);
     if (!peer) throw new Error(`no peer: line in ${folder}`);

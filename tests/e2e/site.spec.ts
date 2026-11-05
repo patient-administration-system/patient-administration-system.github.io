@@ -73,6 +73,8 @@ test("the hero has its headline, introduction and translations", async ({ page }
   await expect(page.locator("h1")).toContainText("Open-source patient administration");
   await expect(page.locator(".site-translations")).toContainText("Cymraeg");
   await expect(page.locator(".site-translations")).toContainText("中文");
+  await expect(page.locator(".site-translations")).toContainText("العربية");
+  await expect(page.locator(".site-translations")).toContainText("हिन्दी");
 });
 
 test("translated pages carry the right language, a draft notice and their own slugs", async ({ page }) => {
@@ -82,6 +84,46 @@ test("translated pages carry the right language, a draft notice and their own sl
   await page.goto("/zh-cn/对比/");
   await expect(page.locator("html")).toHaveAttribute("lang", "zh-cn");
   await expect(page.locator("h1")).toHaveText("对比");
+});
+
+test("Arabic reads right to left, with code left to right and a Gregorian date", async ({ page }) => {
+  await page.goto("/ar-sa/مقارنة/epic/");
+  await expect(page.locator("html")).toHaveAttribute("lang", "ar-sa");
+  await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
+  await expect(page.locator(".site-draft")).toContainText("مسودة أولى");
+  await expect(page.locator("main")).toContainText("2026");
+  await expect(page.locator("main")).toContainText("نوفمبر");
+  const inset = page.locator(".site-page .inset-text").first();
+  const side = await inset.evaluate((element) => getComputedStyle(element).borderRightWidth);
+  expect(side).toBe("5px");
+  await page.goto("/ar-sa/دليل-تعليمي/");
+  const block = page.locator(".code-block pre").first();
+  expect(await block.evaluate((element) => getComputedStyle(element).direction)).toBe("ltr");
+});
+
+test("Hindi carries its language, its draft notice and its own slugs", async ({ page }) => {
+  await page.goto("/hi-in/तुलना/");
+  await expect(page.locator("html")).toHaveAttribute("lang", "hi-in");
+  await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
+  await expect(page.locator(".site-draft")).toContainText("पहला मसौदा");
+  await expect(page.locator("h1")).toHaveText("तुलना");
+});
+
+test("following a language link updates the page's language and direction", async ({ page }) => {
+  await page.goto("/compare/epic/");
+  await page.locator('footer a[hreflang="ar-sa"]').click();
+  await expect(page).toHaveURL(/\/ar-sa\/.+\/epic\/$/);
+  await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
+  await expect(page.locator("html")).toHaveAttribute("lang", "ar-sa");
+  await page.locator('footer a[hreflang="en-001"]').click();
+  await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
+});
+
+test("search finds Arabic and Hindi words", async ({ page }) => {
+  await page.goto("/ar-sa/search/?%D8%A7%D9%84%D8%AA%D8%B0%D9%83%D9%8A%D8%B1");
+  await expect(page.locator(".site-results li").first()).toBeVisible();
+  await page.goto("/hi-in/search/?%E0%A4%B0%E0%A4%BF%E0%A4%AE%E0%A4%BE%E0%A4%87%E0%A4%82%E0%A4%A1%E0%A4%B0");
+  await expect(page.locator(".site-results li").first()).toBeVisible();
 });
 
 test("the language picker goes to the same page in the other locale, across different slugs", async ({ page }) => {

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ActionLink, Hero, Statistic } from "@lilydesignsystem/svelte-headless";
   import { fill, ui } from "./i18n";
-  import { type Locale, TRANSLATIONS, localePath } from "./locales";
+  import { type Locale, TRANSLATIONS, localePath, textDirection } from "./locales";
   import { measure, retrievedOn } from "./status";
 
   let {
@@ -39,9 +39,10 @@
     <p class="site-translations">
       {m.translations}
       {#each TRANSLATIONS as translation, index (translation.locale)}
-        {#if index > 0}<span>,&nbsp;</span>{/if}<a
+        {#if index > 0}<span>{m.separator}&nbsp;</span>{/if}<a
           href={localePath(translation.locale, "") === "/" ? "/en-001/" : localePath(translation.locale, "")}
-          lang={translation.locale}>{translation.name}</a
+          lang={translation.locale}
+          dir={textDirection(translation.locale)}>{translation.name}</a
         >
       {/each}
     </p>

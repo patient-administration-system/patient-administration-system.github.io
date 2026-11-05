@@ -9,7 +9,9 @@
   <p class="site-lead">That address does not match a page on this site.</p>
   <ul class="site-links">
     <li><a href="/">Go to the home page</a></li>
+    <li lang="ar-001"><a href="/ar-001/" dir="rtl">الذهاب إلى الصفحة الرئيسية</a></li>
     <li lang="cy-001"><a href="/cy-001/">Mynd i'r hafan</a></li>
+    <li lang="hi-001"><a href="/hi-001/">मुखपृष्ठ पर जाएँ</a></li>
     <li lang="zh-001"><a href="/zh-001/">前往首页</a></li>
   </ul>
 </div>
