@@ -175,15 +175,24 @@ test("all 57 themes are published", () => {
 });
 
 // Slow, so it runs on request: THEME_SWEEP=1 pnpm exec playwright test -g "every theme".
-test("every theme passes axe on five pages", async ({ page }) => {
+test("every theme passes axe on eight pages", async ({ page }) => {
   test.skip(!process.env.THEME_SWEEP);
-  test.setTimeout(20 * 60_000);
+  test.setTimeout(40 * 60_000);
   const themes = readdirSync("build/themes").map((file) => file.replace(/\.css$/, ""));
   const failures: string[] = [];
   await page.goto("/");
   for (const theme of themes) {
     await page.evaluate((name) => localStorage.setItem("pas-site-theme", name), theme);
-    for (const path of ["/", "/compare/", "/compare/epic/", "/tutorial/", "/trust/"]) {
+    for (const path of [
+      "/",
+      "/compare/",
+      "/compare/epic/",
+      "/tutorial/",
+      "/trust/",
+      "/ar-sa/",
+      "/ar-sa/مقارنة/epic/",
+      "/hi-in/",
+    ]) {
       await page.goto(path, { waitUntil: "domcontentloaded", timeout: 60_000 });
       await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
       await page.waitForTimeout(150);
