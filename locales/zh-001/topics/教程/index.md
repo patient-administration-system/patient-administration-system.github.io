@@ -78,6 +78,8 @@ cp .env.example .env
 pnpm install && pnpm run dev
 ```
 
+如果您在第 3 步选择了其他 Keycloak 端口，也请修改 `.env` 中的 `OIDC_ISSUER`。
+
 ## 第 8 步：登录
 
 打开 <http://localhost:5173>，使用其中一个测试用户登录：
@@ -86,6 +88,8 @@ pnpm install && pnpm run dev
 |---|---|---|
 | `admin` | `admin` | 工作人员视图：排班、预约和候诊名单 |
 | `patient` | `patient` | 患者视图：预约和消息 |
+
+`admin` 用户和其他工作人员一样，还需要输入一次性验证码。请将开发密钥 `JBSWY3DPEHPK3PXP` 添加到身份验证器应用中，然后输入其显示的验证码。
 
 **列表将为空。** 演示数据中没有人员，因为患者和工作人员保存在 `person-service` 和 `worker-service` 中，它们是独立的项目。
 

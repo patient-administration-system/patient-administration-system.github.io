@@ -77,6 +77,8 @@ cp .env.example .env
 pnpm install && pnpm run dev
 ```
 
+If you chose another Keycloak port in step 3, change it in `OIDC_ISSUER` in `.env` too.
+
 ## Step 8: Sign in
 
 Open <http://localhost:5173> and sign in as one of the test users:
@@ -85,6 +87,8 @@ Open <http://localhost:5173> and sign in as one of the test users:
 |---|---|---|
 | `admin` | `admin` | Staff view: schedule, appointments and waiting lists |
 | `patient` | `patient` | Patient view: appointments and messages |
+
+The `admin` user is also asked for a one-time code, as staff are. Add the development key `JBSWY3DPEHPK3PXP` to an authenticator app, and enter the code it shows.
 
 **The lists will be empty.** The demo data contains no people, because patients and staff are held in `person-service` and `worker-service`, which are separate projects.
 

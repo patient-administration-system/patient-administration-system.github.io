@@ -78,6 +78,8 @@ cp .env.example .env
 pnpm install && pnpm run dev
 ```
 
+Os dewisoch borth Keycloak arall yng ngham 3, newidiwch ef yn `OIDC_ISSUER` yn `.env` hefyd.
+
 ## Cam 8: Mewngofnodi
 
 Agorwch <http://localhost:5173> a mewngofnodwch gydag un o'r defnyddwyr prawf:
@@ -86,6 +88,8 @@ Agorwch <http://localhost:5173> a mewngofnodwch gydag un o'r defnyddwyr prawf:
 |---|---|---|
 | `admin` | `admin` | Golwg staff: amserlen, apwyntiadau a rhestrau aros |
 | `patient` | `patient` | Golwg claf: apwyntiadau a negeseuon |
+
+Gofynnir hefyd i'r defnyddiwr `admin` am god un-tro, fel pob aelod o staff. Ychwanegwch yr allwedd ddatblygu `JBSWY3DPEHPK3PXP` at ap dilysu, a rhowch y cod y mae'n ei ddangos.
 
 **Bydd y rhestrau'n wag.** Nid oes pobl yn y data enghreifftiol, gan y cedwir cleifion a staff yn `person-service` a `worker-service`, sy'n brosiectau ar wahân.
 
