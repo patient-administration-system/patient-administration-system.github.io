@@ -15,6 +15,8 @@ const en = {
   compareNotice:
     "An independent comparison from public sources, checked on {date}. We have no connection with this company or product, and its names and trademarks belong to their owners. Corrections are welcome.",
   compareFix: "Report a correction",
+  readinessEstimate: "Estimate",
+  readinessLabel: "{item}: readiness estimate",
   footer:
     "An open-source project, built and tested but not yet in use with real patients. This is not an official NHS website, and nothing here is clinical advice.",
   licence: "Licence",
@@ -77,6 +79,8 @@ const cy: Ui = {
   compareNotice:
     "Cymhariaeth annibynnol o ffynonellau cyhoeddus, a wiriwyd ar {date}. Nid oes gennym unrhyw gysylltiad â'r cwmni na'r cynnyrch hwn, ac mae ei enwau a'i nodau masnach yn perthyn i'w perchnogion. Croesewir cywiriadau.",
   compareFix: "Rhoi gwybod am gywiriad",
+  readinessEstimate: "Amcangyfrif",
+  readinessLabel: "{item}: amcangyfrif o’r parodrwydd",
   footer:
     "Prosiect cod agored, wedi'i adeiladu a'i brofi ond heb ei ddefnyddio gyda chleifion go iawn eto. Nid yw hon yn wefan swyddogol y GIG, ac nid oes dim yma yn gyngor clinigol.",
   licence: "Trwydded",
@@ -136,6 +140,8 @@ const zh: Ui = {
   compareNotice:
     "这是一份根据公开资料撰写的独立对比，核对日期为 {date}。我们与该公司或产品没有任何关联，其名称和商标归各自所有者所有。欢迎指正。",
   compareFix: "提交更正",
+  readinessEstimate: "估计",
+  readinessLabel: "{item}：就绪程度估计",
   footer: "这是一个开源项目，已完成构建和测试，但尚未用于真实患者。本网站不是 NHS 官方网站，此处内容均不构成临床建议。",
   licence: "许可证",
   aiStatement: "AI 声明",
@@ -189,6 +195,8 @@ const ar: Ui = {
   compareNotice:
     "مقارنة مستقلة مستندة إلى مصادر عامة، جرى التحقق منها في {date}. لا تربطنا أي صلة بهذه الشركة أو هذا المنتج، وتعود أسماؤه وعلاماته التجارية إلى مالكيها. نرحب بأي تصحيح.",
   compareFix: "الإبلاغ عن تصحيح",
+  readinessEstimate: "تقدير",
+  readinessLabel: "{item}: تقدير الجاهزية",
   footer:
     "مشروع مفتوح المصدر، اكتمل بناؤه واختباره لكنه لا يُستخدم بعد مع مرضى حقيقيين. هذا ليس موقعًا رسميًا لهيئة الخدمات الصحية الوطنية (NHS)، ولا يُعد أي شيء هنا مشورة سريرية.",
   licence: "الترخيص",
@@ -249,6 +257,8 @@ const hi: Ui = {
   compareNotice:
     "सार्वजनिक स्रोतों पर आधारित एक स्वतंत्र तुलना, जिसकी जाँच {date} को की गई। इस कंपनी या उत्पाद से हमारा कोई संबंध नहीं है, और इसके नाम और ट्रेडमार्क उनके स्वामियों के हैं। सुधारों का स्वागत है।",
   compareFix: "सुधार की सूचना दें",
+  readinessEstimate: "अनुमान",
+  readinessLabel: "{item}: तैयारी का अनुमान",
   footer:
     "एक ओपन-सोर्स परियोजना, जो बनाई और जाँची जा चुकी है, लेकिन अभी वास्तविक रोगियों के साथ उपयोग में नहीं है। यह NHS की आधिकारिक वेबसाइट नहीं है, और यहाँ की कोई भी सामग्री नैदानिक सलाह नहीं है।",
   licence: "लाइसेंस",

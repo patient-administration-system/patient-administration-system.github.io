@@ -20,7 +20,7 @@ export const LINKS = {
   spec: blob("spec/index.md"),
   specTree: tree("spec"),
   tasks: blob("tasks.md"),
-  readiness: blob("governance/production-readiness.md"),
+  readiness: blob("governance/path-to-production.md"),
   noshow: blob("governance/noshow-model.md"),
   chaos: blob("governance/chaos-testing.md"),
   differencing: blob("governance/analytics-differencing.md"),

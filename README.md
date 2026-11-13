@@ -43,7 +43,7 @@ Do not type a count into a page. Use `{{count:Measure name}}`, which fails the b
 
 ## Rules for the content
 
-- Say what is true of the main repository today. A page must not claim more than its README, `AI_STATEMENT.md` and `governance/production-readiness.md` do. Quote no outcome figures until there are real ones.
+- Say what is true of the main repository today. A page must not claim more than its README, `AI_STATEMENT.md` and `governance/path-to-production.md` do. The estimates on the path-to-production page live in `src/lib/readiness.ts` and must match that file. Quote no outcome figures until there are real ones.
 - Keep the fact that the system is not in use with real patients prominent, above all on comparison pages.
 - A comparison with a named product uses public sources that the page lists, states the date they were checked, and shows where this project falls short. Use no vendor logos. Recheck the sources when you change a page, and update `checked:`.
 - The default look is neutral, because this is not an official NHS website. The theme picker offers all 57 Lily themes, including NHS and GOV.UK ones, as the maintainer chose. Do not make one of those the default.

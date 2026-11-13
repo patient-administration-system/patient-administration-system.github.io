@@ -8,7 +8,7 @@ description: Beth sydd wedi'i orffen, beth sydd ar agor o hyd, y rheolau diogelw
 
 Mae'r dudalen hon yn nodi statws presennol y prosiect, y rheolau diogelwch a orfodir gan brofion, a'r defnydd o AI wrth ei ddatblygu.
 
-> **Rhaid peidio â defnyddio'r system hon gyda chleifion go iawn ar hyn o bryd.** Gweler y [rhestr wirio parodrwydd](repo:governance/production-readiness.md). Mae eitem heb ei thicio yn golygu nad yw'r gwaith wedi'i wneud.
+> **Rhaid peidio â defnyddio'r system hon gyda chleifion go iawn ar hyn o bryd.** Mae'r [llwybr at ddefnydd byw](topic:path-to-production) yn esbonio beth mae defnydd byw yn ei olygu, gydag amcangyfrif ar gyfer pob peth sydd ei angen o hyd.
 
 ## Statws presennol
 
@@ -68,7 +68,7 @@ Nage. Prosiect cod agored ydyw, wedi'i gynllunio ar gyfer y GIG yng Nghymru. Nid
 
 ### A all fy sefydliad ei ddefnyddio?
 
-Mae'r trwyddedau'n caniatáu hynny, ond nid yw'r system yn barod ar gyfer cleifion go iawn. Gweler y [rhestr wirio parodrwydd](repo:governance/production-readiness.md).
+Mae'r trwyddedau'n caniatáu hynny, ond nid yw'r system yn barod ar gyfer cleifion go iawn. Gweler y [llwybr at ddefnydd byw](topic:path-to-production).
 
 ### A yw'n storio cofnodion meddygol?
 

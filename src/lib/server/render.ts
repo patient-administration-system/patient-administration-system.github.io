@@ -1,8 +1,13 @@
 // Turns a page's Markdown into HTML that uses Lily's class hooks, so that every theme styles it.
 // [text](topic:compare/epic) names a page by its en-001 path; the link goes to that page's peer in this locale.
 // [text](repo:path) and [text](tree:path) go to the main repository. {{count:Name}} and {{date}} fill in live values.
+// {{readiness:id}}, on a line of its own under a level-3 heading, becomes Lily's Slider showing that item's estimate.
+import { Slider } from "@lilydesignsystem/svelte-headless";
 import { Marked, type Token, type Tokens } from "marked";
+import { render } from "svelte/server";
+import { fill, ui } from "../i18n";
 import { type Locale } from "../locales";
+import { readiness } from "../readiness";
 import { measure, retrievedOn } from "../status";
 import { findPage, pageHref, peerOf, type Page } from "./content";
 
@@ -12,6 +17,48 @@ function fillValues(body: string, locale: Locale): string {
   return body
     .replace(/\{\{count:([^}]+)\}\}/g, (_, name: string) => String(measure(name)))
     .replaceAll("{{date}}", retrievedOn(locale));
+}
+
+/** A percentage in Western digits, as every figure on the site is. */
+export function formatPercent(value: number, locale: Locale): string {
+  return new Intl.NumberFormat(locale, { style: "percent", numberingSystem: "latn" }).format(value / 100);
+}
+
+/**
+ * The estimate for one item: Lily's Slider, rendered here so that it is in the prerendered page, and the figure in
+ * words beside it. It is read-only (disabled): it shows a judgement, it does not take one.
+ */
+export function readinessHtml(id: string, item: string, locale: Locale): string {
+  const value = readiness(id);
+  const percent = formatPercent(value, locale);
+  const m = ui(locale);
+  const { body } = render(Slider, {
+    props: {
+      label: fill(m.readinessLabel, { item }),
+      value,
+      disabled: true,
+      "aria-valuetext": percent,
+      class: "site-readiness-slider",
+    },
+  });
+  const slider = body.replace(/<!--[^>]*-->/g, "").replace(/\s*\n\s*/g, " ");
+  return `<div class="site-readiness" data-readiness="${id}">${slider}<p class="site-readiness-value">${m.readinessEstimate}: ${percent}</p></div>`;
+}
+
+/** Replaces each {{readiness:id}} line, labelling it with the level-3 heading above it. */
+function fillReadiness(body: string, locale: Locale): string {
+  let heading = "";
+  return body
+    .split("\n")
+    .map((line) => {
+      const title = line.match(/^###\s+(.+)$/);
+      if (title) heading = (title[1] ?? "").replace(/[*_`]/g, "").trim();
+      const item = line.match(/^\{\{readiness:([a-z0-9-]+)\}\}$/);
+      if (!item) return line;
+      if (!heading) throw new Error(`{{readiness:${item[1]}}} has no level-3 heading above it`);
+      return readinessHtml(item[1] ?? "", heading, locale);
+    })
+    .join("\n");
 }
 
 function resolveHref(href: string, locale: Locale): string {
@@ -68,7 +115,7 @@ function renderSection(marked: Marked, tokens: Token[]): string {
 
 export function renderPage(page: Page): string {
   const marked = createMarked();
-  const tokens = marked.lexer(fillValues(page.body, page.locale));
+  const tokens = marked.lexer(fillReadiness(fillValues(page.body, page.locale), page.locale));
   marked.walkTokens(tokens, (token) => {
     if (token.type === "link") (token as Tokens.Link).href = resolveHref((token as Tokens.Link).href, page.locale);
   });
@@ -84,6 +131,7 @@ export function renderPage(page: Page): string {
 export function pageText(page: Page, locale: Locale): string {
   const text = [page.meta.title, page.meta.description, page.meta.headline, page.meta.introduction, page.body]
     .join(" ")
+    .replace(/\{\{readiness:[^}]+\}\}/g, " ")
     .replace(/\]\([^)]*\)/g, " ")
     .replace(/[#*|`[\]>_-]+/g, " ")
     .replace(/\s+/g, " ");

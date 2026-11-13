@@ -319,6 +319,119 @@ code {
 .site-page .card p {
   margin: 0;
 }
+/* The path-to-production estimates. The themes fill Lily's slider from --slider-value; the CSP allows no inline style,
+   so the value comes from the input's own value attribute. Estimates are multiples of 5 (tests/unit/readiness.test.ts). */
+.site-readiness {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-block: 0.25rem 0.75rem;
+}
+.site-readiness .site-readiness-slider {
+  flex: 1 1 10rem;
+  min-inline-size: 0;
+  height: 0.75rem;
+  margin: 0;
+  opacity: 1;
+  cursor: default;
+  /* The browser's own disabled styling would hide the theme's filled track. */
+  appearance: none;
+  border: 1px solid var(--site-line);
+}
+/* The themes fill from the left; in right-to-left text the value runs from the right. */
+.site-readiness .site-readiness-slider:dir(rtl) {
+  background: linear-gradient(
+    to left,
+    var(--color-primary) calc(var(--slider-value, 50) * 1%),
+    var(--lily-surface-sunken, var(--site-soft)) 0
+  );
+}
+.site-readiness .site-readiness-slider::-webkit-slider-thumb {
+  appearance: none;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 3px solid var(--color-base-100);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+.site-readiness .site-readiness-slider::-moz-range-thumb {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 3px solid var(--color-base-100);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+.site-page .card .site-readiness-value {
+  margin: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.site-readiness-slider[value="0"] {
+  --slider-value: 0;
+}
+.site-readiness-slider[value="5"] {
+  --slider-value: 5;
+}
+.site-readiness-slider[value="10"] {
+  --slider-value: 10;
+}
+.site-readiness-slider[value="15"] {
+  --slider-value: 15;
+}
+.site-readiness-slider[value="20"] {
+  --slider-value: 20;
+}
+.site-readiness-slider[value="25"] {
+  --slider-value: 25;
+}
+.site-readiness-slider[value="30"] {
+  --slider-value: 30;
+}
+.site-readiness-slider[value="35"] {
+  --slider-value: 35;
+}
+.site-readiness-slider[value="40"] {
+  --slider-value: 40;
+}
+.site-readiness-slider[value="45"] {
+  --slider-value: 45;
+}
+.site-readiness-slider[value="50"] {
+  --slider-value: 50;
+}
+.site-readiness-slider[value="55"] {
+  --slider-value: 55;
+}
+.site-readiness-slider[value="60"] {
+  --slider-value: 60;
+}
+.site-readiness-slider[value="65"] {
+  --slider-value: 65;
+}
+.site-readiness-slider[value="70"] {
+  --slider-value: 70;
+}
+.site-readiness-slider[value="75"] {
+  --slider-value: 75;
+}
+.site-readiness-slider[value="80"] {
+  --slider-value: 80;
+}
+.site-readiness-slider[value="85"] {
+  --slider-value: 85;
+}
+.site-readiness-slider[value="90"] {
+  --slider-value: 90;
+}
+.site-readiness-slider[value="95"] {
+  --slider-value: 95;
+}
+.site-readiness-slider[value="100"] {
+  --slider-value: 100;
+}
 .site-page p {
   max-width: 48rem;
 }

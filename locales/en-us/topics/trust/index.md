@@ -7,7 +7,7 @@ description: What is finished, what is still open, the safety rules the tests en
 
 This page sets out the current status of the project, the safety rules enforced by tests, and the use of AI in its development.
 
-> **This system must not be used with real patients at present.** See the [production readiness checklist](repo:governance/production-readiness.md). An unticked item means the work is not done.
+> **This system must not be used with real patients at present.** The [path to production](topic:path-to-production) explains what production means, with an estimate for each thing still needed.
 
 ## Current status
 
@@ -67,7 +67,7 @@ No. It is an open-source project designed for the NHS in Wales. This is not an o
 
 ### Can my organization use it?
 
-The licenses permit it, but the system is not ready for real patients. See the [production readiness checklist](repo:governance/production-readiness.md).
+The licenses permit it, but the system is not ready for real patients. See the [path to production](topic:path-to-production).
 
 ### Does it store medical records?
 
