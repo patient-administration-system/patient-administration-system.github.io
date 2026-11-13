@@ -101,10 +101,6 @@ code {
   max-width: 44rem;
   margin: 0 0 1.5rem;
 }
-.site-note {
-  color: var(--site-muted);
-  font-size: 0.9rem;
-}
 
 /* Header and footer */
 .site-header {
@@ -269,24 +265,6 @@ code {
 }
 .site-button:focus-visible {
   outline-color: var(--site-hero-text);
-}
-.site-stats {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-}
-.site-stats .statistic {
-  padding: 1rem;
-  background: var(--site-soft);
-  border-radius: 8px;
-}
-.site-stats .statistic-title {
-  font-size: 0.95rem;
-}
-.site-stats .statistic-value {
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1.2;
 }
 
 /* Lily components in the page flow */

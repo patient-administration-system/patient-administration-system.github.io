@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { ActionLink, Hero, Statistic } from "@lilydesignsystem/svelte-headless";
-  import { fill, ui } from "./i18n";
+  import { ActionLink, Hero } from "@lilydesignsystem/svelte-headless";
+  import { ui } from "./i18n";
   import { type Locale, TRANSLATIONS, localePath, textDirection } from "./locales";
-  import { measure, retrievedOn } from "./status";
 
   let {
     locale,
@@ -17,12 +16,6 @@
   } = $props();
 
   const m = $derived(ui(locale));
-  const stats = $derived([
-    { title: m.stats.requirements, value: measure("Functional requirements") + measure("Non-functional requirements") },
-    { title: m.stats.tests, value: measure("Rust test functions (server, front-end, migrations)") },
-    { title: m.stats.routes, value: measure("Server route registrations") },
-    { title: m.stats.languages, value: measure("UI locale catalogues") },
-  ]);
 </script>
 
 <Hero class="site-hero">
@@ -52,12 +45,4 @@
 <div class="site-width site-page">
   <!-- eslint-disable-next-line svelte/no-at-html-tags -- written by this project in locales/, at build time -->
   {@html html}
-
-  <h2>{m.numbers}</h2>
-  <div class="site-stats">
-    {#each stats as stat (stat.title)}
-      <Statistic title={stat.title} value={String(stat.value)} />
-    {/each}
-  </div>
-  <p class="site-note">{fill(m.retrieved, { date: retrievedOn(locale) })}</p>
 </div>

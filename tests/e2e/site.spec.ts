@@ -110,12 +110,12 @@ test("Hindi carries its language, its draft notice and its own slugs", async ({ 
 });
 
 test("following a language link updates the page's language and direction", async ({ page }) => {
-  await page.goto("/compare/epic/");
-  await page.locator('footer a[hreflang="ar-sa"]').click();
-  await expect(page).toHaveURL(/\/ar-sa\/.+\/epic\/$/);
+  await page.goto("/");
+  await page.locator('.site-translations a[lang="ar-001"]').click();
+  await expect(page).toHaveURL(/\/ar-001\/$/);
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-  await expect(page.locator("html")).toHaveAttribute("lang", "ar-sa");
-  await page.locator('footer a[hreflang="en-001"]').click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "ar-001");
+  await page.locator('.site-translations a[lang="en-001"]').click();
   await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
 });
 

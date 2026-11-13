@@ -28,7 +28,7 @@
     if (target) location.assign(target.href);
   }
 
-  // Footer and hero links to another locale go through the router, which leaves <html> as it was.
+  // Hero links to another locale go through the router, which leaves <html> as it was.
   $effect(() => {
     document.documentElement.lang = locale;
     document.documentElement.dir = textDirection(locale);
@@ -92,19 +92,6 @@
       <li><a href={repo("AI_STATEMENT.md")}>{m.aiStatement}</a></li>
       <li><a href={repo("SECURITY.md")}>{m.security}</a></li>
       <li><a href={repo("CONTRIBUTING.md")}>{m.contribute}</a></li>
-    </ul>
-    <ul aria-label={m.languages}>
-      {#each data.alternates as alternate (alternate.locale)}
-        <li>
-          <a
-            href={alternate.href}
-            lang={alternate.locale}
-            dir={textDirection(alternate.locale)}
-            hreflang={alternate.locale}
-            aria-current={alternate.locale === locale ? "true" : undefined}>{LOCALE_LABELS[alternate.locale]}</a
-          >
-        </li>
-      {/each}
     </ul>
   </div>
 </Footer>
