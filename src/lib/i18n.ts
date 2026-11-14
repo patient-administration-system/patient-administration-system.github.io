@@ -17,7 +17,7 @@ const en = {
   readinessEstimate: "Estimate",
   readinessLabel: "{item}: readiness estimate",
   footer:
-    "An open-source project, built and tested but not yet in use with real patients. This is not an official NHS website, and nothing here is clinical advice.",
+    "An open-source project, built and tested but not yet in use with real patients. This is not the website of any health service or government, and nothing here is clinical advice.",
   licence: "Licence",
   aiStatement: "AI statement",
   security: "Report a security problem",
@@ -72,7 +72,7 @@ const cy: Ui = {
   readinessEstimate: "Amcangyfrif",
   readinessLabel: "{item}: amcangyfrif o’r parodrwydd",
   footer:
-    "Prosiect cod agored, wedi'i adeiladu a'i brofi ond heb ei ddefnyddio gyda chleifion go iawn eto. Nid yw hon yn wefan swyddogol y GIG, ac nid oes dim yma yn gyngor clinigol.",
+    "Prosiect cod agored, wedi'i adeiladu a'i brofi ond heb ei ddefnyddio gyda chleifion go iawn eto. Nid yw hon yn wefan unrhyw wasanaeth iechyd na llywodraeth, ac nid oes dim yma yn gyngor clinigol.",
   licence: "Trwydded",
   aiStatement: "Datganiad AI",
   security: "Rhoi gwybod am broblem ddiogelwch",
@@ -123,7 +123,8 @@ const zh: Ui = {
   compareFix: "提交更正",
   readinessEstimate: "估计",
   readinessLabel: "{item}：就绪程度估计",
-  footer: "这是一个开源项目，已完成构建和测试，但尚未用于真实患者。本网站不是 NHS 官方网站，此处内容均不构成临床建议。",
+  footer:
+    "这是一个开源项目，已完成构建和测试，但尚未用于真实患者。本网站不是任何医疗服务机构或政府的网站，此处内容均不构成临床建议。",
   licence: "许可证",
   aiStatement: "AI 声明",
   security: "报告安全问题",
@@ -175,7 +176,7 @@ const ar: Ui = {
   readinessEstimate: "تقدير",
   readinessLabel: "{item}: تقدير الجاهزية",
   footer:
-    "مشروع مفتوح المصدر، اكتمل بناؤه واختباره لكنه لا يُستخدم بعد مع مرضى حقيقيين. هذا ليس موقعًا رسميًا لهيئة الخدمات الصحية الوطنية (NHS)، ولا يُعد أي شيء هنا مشورة سريرية.",
+    "مشروع مفتوح المصدر، اكتمل بناؤه واختباره لكنه لا يُستخدم بعد مع مرضى حقيقيين. هذا ليس موقعًا لأي جهة خدمات صحية أو حكومة، ولا يُعد أي شيء هنا مشورة سريرية.",
   licence: "الترخيص",
   aiStatement: "بيان الذكاء الاصطناعي",
   security: "الإبلاغ عن مشكلة أمنية",
@@ -228,7 +229,7 @@ const hi: Ui = {
   readinessEstimate: "अनुमान",
   readinessLabel: "{item}: तैयारी का अनुमान",
   footer:
-    "एक ओपन-सोर्स परियोजना, जो बनाई और जाँची जा चुकी है, लेकिन अभी वास्तविक रोगियों के साथ उपयोग में नहीं है। यह NHS की आधिकारिक वेबसाइट नहीं है, और यहाँ की कोई भी सामग्री नैदानिक सलाह नहीं है।",
+    "एक ओपन-सोर्स परियोजना, जो बनाई और जाँची जा चुकी है, लेकिन अभी वास्तविक रोगियों के साथ उपयोग में नहीं है। यह किसी स्वास्थ्य सेवा या सरकार की वेबसाइट नहीं है, और यहाँ की कोई भी सामग्री नैदानिक सलाह नहीं है।",
   licence: "लाइसेंस",
   aiStatement: "AI वक्तव्य",
   security: "सुरक्षा समस्या की सूचना दें",

@@ -3,8 +3,8 @@ peer: home
 title: System Gweinyddu Cleifion
 primary: Gweld y nodweddion
 secondary: Cymharu dewisiadau
-description: System gweinyddu cleifion cod agored wedi'i chynllunio ar gyfer y GIG yng Nghymru, sy'n cwmpasu apwyntiadau, nodiadau atgoffa, rhestrau aros ac adrodd ar fynediad.
-headline: Gweinyddu cleifion cod agored ar gyfer y GIG yng Nghymru
+description: System gweinyddu cleifion cod agored ar gyfer ysbytai a chlinigau, sy'n cwmpasu apwyntiadau, nodiadau atgoffa, rhestrau aros ac adrodd ar fynediad.
+headline: Gweinyddu cleifion cod agored ar gyfer ysbytai a chlinigau
 subheadline: Apwyntiadau, nodiadau atgoffa, rhestrau aros ac adrodd ar fynediad mewn un system.
 introduction: Mae llythyrau heb eu darllen ac apwyntiadau heb eu defnyddio yn costio amser i ysbytai ac yn oedi gofal. Mae'r system hon yn anfon nodiadau atgoffa yn newis iaith y claf, yn derbyn atebion drwy neges destun, dolen neu fysellbad, yn trosglwyddo nodiadau atgoffa heb ateb i staff i ffonio, ac yn adrodd a yw mynediad yn wahanol rhwng grwpiau o gleifion.
 ---

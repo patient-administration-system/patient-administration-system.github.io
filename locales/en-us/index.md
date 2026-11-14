@@ -2,8 +2,8 @@
 title: Patient Administration System
 primary: View features
 secondary: Compare options
-description: An open-source patient administration system designed for the NHS in Wales, covering appointments, reminders, waiting lists and access reporting.
-headline: Open-source patient administration for the NHS in Wales
+description: An open-source patient administration system for hospitals and clinics, covering appointments, reminders, waiting lists and access reporting.
+headline: Open-source patient administration for hospitals and clinics
 subheadline: Appointments, reminders, waiting lists and access reporting in one system.
 introduction: Unread letters and unused appointment slots cost hospitals time and delay care. This system sends reminders in the patient's preferred language, accepts replies by text, link or keypad, passes unanswered reminders to staff for a phone call, and reports whether access differs between patient groups.
 ---

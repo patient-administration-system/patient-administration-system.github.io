@@ -7,7 +7,7 @@ checked: 2026-11-04
 
 Mae OpenEMR yn [system cofnodion iechyd a rheoli practis rhad ac am ddim a chod agored](https://www.open-emr.org/). Mae ei [rhestr nodweddion](https://open-emr.org/wiki/index.php/OpenEMR_Features) yn cynnwys amserlennu, presgripsiynau, bilio a phorth cleifion, ac mae'n adrodd am ardystiad ONC yr Unol Daleithiau. Mae ei god dan [GNU GPL fersiwn 3](https://github.com/openemr/openemr/blob/master/LICENSE).
 
-Mae OpenEMR wedi'i gynllunio ar gyfer practisau meddygol ac mae'n cynnwys cofnodion clinigol. Mae'r prosiect hwn ar gyfer gweinyddiaeth ysbytai'r GIG, ac nid oes ganddo gofnod clinigol.
+Mae OpenEMR wedi'i gynllunio ar gyfer practisau meddygol ac mae'n cynnwys cofnodion clinigol. Mae'r prosiect hwn ar gyfer gweinyddiaeth ysbytai, ac nid oes ganddo gofnod clinigol.
 
 ## Cymhariaeth
 
@@ -28,7 +28,7 @@ Rydych chi'n rhedeg practis meddygol ac mae angen cofnod cod agored arnoch nawr.
 
 ### Pryd y gallai'r prosiect hwn fod yn addas
 
-Mae angen rhestrau aros y GIG, clociau RTT a nodiadau atgoffa sy'n uwchgyfeirio arnoch.
+Mae angen rhestrau aros, clociau amser aros a nodiadau atgoffa sy'n uwchgyfeirio arnoch.
 
 ## Ffynonellau
 

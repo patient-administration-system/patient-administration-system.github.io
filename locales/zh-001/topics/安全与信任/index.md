@@ -62,9 +62,9 @@ description: 哪些工作已完成、哪些尚未完成、测试强制执行的�
 
 ## 常见问题
 
-### 这是 NHS 的产品吗？
+### 这是某个医疗服务机构的官方产品吗？
 
-不是。这是一个为威尔士 NHS 设计的开源项目。本网站不是 NHS 官方网站。
+不是。这是一个独立的开源项目，不由任何医疗服务机构或政府运营。它最初源于威尔士医院的需求，目前正在改为不偏向任何国家，让某一国家的规则成为一项设置，而不是核心。本网站不是任何医疗服务机构的网站。
 
 ### 我的机构可以使用吗？
 
@@ -85,5 +85,5 @@ description: 哪些工作已完成、哪些尚未完成、测试强制执行的�
 - [临床安全](repo:governance/clinical-safety.md)
 - [数据保护影响评估](repo:governance/dpia.md)
 - [无障碍声明](repo:governance/accessibility-statement.md)
-- [NHS DTAC 自我评估](tree:docs/united-kingdom)
+- [英国 DTAC 自我评估](tree:docs/united-kingdom)
 - [其他所有治理文档](repo:governance/README.md)

@@ -61,9 +61,9 @@ Much of the repository was written with an AI assistant, Anthropic's Claude, at 
 
 ## Frequently asked questions
 
-### Is this an NHS product?
+### Is this an official health service product?
 
-No. It is an open-source project designed for the NHS in Wales. This is not an official NHS website.
+No. It is an independent open-source project, run by no health service or government. It began with the needs of hospitals in Wales and is being made country-neutral, so that one country's rules are a setting, not the core. This is not the website of any health service.
 
 ### Can my organization use it?
 
@@ -84,5 +84,5 @@ These are drafts and self-assessments, not sign-offs.
 - [Clinical safety](repo:governance/clinical-safety.md)
 - [Data protection impact assessment](repo:governance/dpia.md)
 - [Accessibility statement](repo:governance/accessibility-statement.md)
-- [NHS DTAC self-assessment](tree:docs/united-kingdom)
+- [UK DTAC self-assessment](tree:docs/united-kingdom)
 - [Everything else in governance](repo:governance/README.md)

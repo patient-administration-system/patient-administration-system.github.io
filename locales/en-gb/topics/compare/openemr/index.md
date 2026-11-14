@@ -6,7 +6,7 @@ checked: 2026-11-04
 
 OpenEMR is [a free, open-source health record and practice management system](https://www.open-emr.org/). Its [feature list](https://open-emr.org/wiki/index.php/OpenEMR_Features) includes scheduling, prescriptions, billing and a patient portal, and it reports US ONC certification. Its code is under the [GNU GPL version 3](https://github.com/openemr/openemr/blob/master/LICENSE).
 
-OpenEMR is designed for medical practices and includes clinical records. This project is for NHS hospital administration, and has no clinical record.
+OpenEMR is designed for medical practices and includes clinical records. This project is for hospital administration, and has no clinical record.
 
 ## Comparison
 
@@ -27,7 +27,7 @@ You run a medical practice and need an open-source record now.
 
 ### When this project may be suitable
 
-You need NHS waiting lists, RTT clocks and escalating reminders.
+You need waiting lists, waiting-time clocks and escalating reminders.
 
 ## Sources
 

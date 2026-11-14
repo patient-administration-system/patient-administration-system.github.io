@@ -76,7 +76,7 @@ Nid oes modd mewngofnodi i ddangosfwrdd y gweithredwr eto. Mae angen penderfynia
 
 {{readiness:identity-proofing}}
 
-Dim ond ar ôl i aelod o staff a enwir gofnodi prawf o hunaniaeth y mae cyfrif claf yn gweithio. Nid oes sgrin staff ar gyfer hyn eto, ac nid yw NHS login wedi'i gysylltu.
+Dim ond ar ôl i aelod o staff a enwir gofnodi prawf o hunaniaeth y mae cyfrif claf yn gweithio. Nid oes sgrin staff ar gyfer hyn eto, ac nid oes gwasanaeth hunaniaeth ddigidol, fel mewngofnodi cenedlaethol, wedi'i gysylltu.
 
 ## Dibynadwyedd
 

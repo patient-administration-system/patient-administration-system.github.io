@@ -62,9 +62,9 @@ Ysgrifennwyd llawer o'r ystorfa gyda chynorthwyydd AI, Claude gan Anthropic, dan
 
 ## Cwestiynau cyffredin
 
-### Ai cynnyrch y GIG yw hwn?
+### Ai cynnyrch swyddogol gwasanaeth iechyd yw hwn?
 
-Nage. Prosiect cod agored ydyw, wedi'i gynllunio ar gyfer y GIG yng Nghymru. Nid yw hon yn wefan swyddogol y GIG.
+Nage. Prosiect cod agored annibynnol ydyw, nad yw'n cael ei redeg gan unrhyw wasanaeth iechyd na llywodraeth. Dechreuodd gydag anghenion ysbytai yng Nghymru, ac mae'n cael ei wneud yn niwtral o ran gwlad, fel bod rheolau un wlad yn osodiad, nid yn graidd. Nid yw hon yn wefan unrhyw wasanaeth iechyd.
 
 ### A all fy sefydliad ei ddefnyddio?
 
@@ -85,5 +85,5 @@ Drafftiau a hunanasesiadau yw'r rhain, nid cymeradwyaethau.
 - [Diogelwch clinigol](repo:governance/clinical-safety.md)
 - [Asesiad o'r effaith ar ddiogelu data](repo:governance/dpia.md)
 - [Datganiad hygyrchedd](repo:governance/accessibility-statement.md)
-- [Hunanasesiad DTAC y GIG](tree:docs/united-kingdom)
+- [Hunanasesiad DTAC y DU](tree:docs/united-kingdom)
 - [Popeth arall am lywodraethu](repo:governance/README.md)

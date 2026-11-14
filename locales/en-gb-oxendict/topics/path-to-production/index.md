@@ -75,7 +75,7 @@ The operator dashboard has no sign-in yet. It needs a decision first.
 
 {{readiness:identity-proofing}}
 
-A patient's account works only after a named staff member records proof of identity. There is no staff screen for this yet, and NHS login is not connected.
+A patient's account works only after a named staff member records proof of identity. There is no staff screen for this yet, and no digital identity service, such as a national login, is connected.
 
 ## Reliability
 
