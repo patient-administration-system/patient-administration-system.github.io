@@ -170,8 +170,8 @@ test("the theme picker swaps the stylesheet, breaks no policy and is remembered"
   expect(problems).toEqual([]);
 });
 
-test("all 57 themes are published", () => {
-  expect(readdirSync("build/themes").filter((file) => file.endsWith(".css"))).toHaveLength(57);
+test("all 63 themes are published", () => {
+  expect(readdirSync("build/themes").filter((file) => file.endsWith(".css"))).toHaveLength(63);
 });
 
 // Slow, so it runs on request: THEME_SWEEP=1 pnpm exec playwright test -g "every theme".

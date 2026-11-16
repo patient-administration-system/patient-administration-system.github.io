@@ -60,7 +60,7 @@
         {links}
         searchProps={{ action: localePath(locale, "search"), navigate: (href: string) => goto(href) }}
         themesUrl="/themes/"
-        themeProps={{ defaultValue: "corporate", storageKey: "pas-site-theme" }}
+        themeProps={{ defaultValue: "corporate", storageKey: "pas-site-theme", cookieName: "" }}
         locales={[...LOCALES]}
         localeProps={{ value: locale, localeLabels: LOCALE_LABELS, onChange: changeLanguage }}
         timeZoneProps={{ locale, storageKey: "pas-site-time-zone" }}
