@@ -60,7 +60,7 @@
         {links}
         searchProps={{ action: localePath(locale, "search"), navigate: (href: string) => goto(href) }}
         themesUrl="/themes/"
-        themeProps={{ defaultValue: "corporate", storageKey: "pas-site-theme", cookieName: "" }}
+        themeProps={{ defaultValue: "corporate", storageKey: "pas-site-theme", cookieName: "pas-site-theme" }}
         locales={[...LOCALES]}
         localeProps={{ value: locale, localeLabels: LOCALE_LABELS, onChange: changeLanguage }}
         timeZoneProps={{ locale, storageKey: "pas-site-time-zone" }}
@@ -92,6 +92,7 @@
       <li><a href={repo("AI_STATEMENT.md")}>{m.aiStatement}</a></li>
       <li><a href={repo("SECURITY.md")}>{m.security}</a></li>
       <li><a href={repo("CONTRIBUTING.md")}>{m.contribute}</a></li>
+      <li><a href={data.privacy}>{m.privacy}</a></li>
     </ul>
   </div>
 </Footer>

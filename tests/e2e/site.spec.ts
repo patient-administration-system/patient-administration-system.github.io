@@ -170,6 +170,35 @@ test("the theme picker swaps the stylesheet, breaks no policy and is remembered"
   expect(problems).toEqual([]);
 });
 
+test("the theme choice is kept in local storage and a cookie, and only once it is made", async ({ page, context }) => {
+  await page.goto("/");
+  const kept = async () => ({
+    stored: await page.evaluate(() => localStorage.getItem("pas-site-theme")),
+    cookie: (await context.cookies()).find((c) => c.name === "pas-site-theme")?.value ?? null,
+  });
+  expect(await kept()).toEqual({ stored: null, cookie: null });
+  await page.getByRole("button", { name: "Theme" }).click();
+  await page.getByRole("option", { name: "Dark", exact: true }).click();
+  await expect.poll(kept).toEqual({ stored: "dark", cookie: "dark" });
+});
+
+test("every page's footer links to the privacy page, in its own language", async ({ page }) => {
+  for (const [start, title] of <[string, string][]>[
+    ["/", "Privacy"],
+    ["/cy-gb/", "Preifatrwydd"],
+    ["/ar-sa/", "الخصوصية"],
+    ["/hi-in/", "गोपनीयता"],
+    ["/zh-cn/", "隐私"],
+  ]) {
+    await page.goto(start);
+    await page.getByRole("contentinfo").getByRole("link", { name: title, exact: true }).click();
+    await expect(page.getByRole("heading", { level: 1, name: title })).toBeVisible();
+    for (const key of ["pas-site-theme", "pas-site-time-zone", "pas-site-text-size"]) {
+      await expect(page.getByRole("main").getByText(key, { exact: true }).first()).toBeVisible();
+    }
+  }
+});
+
 test("all 63 themes are published", () => {
   expect(readdirSync("build/themes").filter((file) => file.endsWith(".css"))).toHaveLength(63);
 });

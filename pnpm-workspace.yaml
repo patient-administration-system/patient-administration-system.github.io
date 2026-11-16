@@ -7,7 +7,7 @@ minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - "@lilydesignsystem/svelte-theme-picker@0.4.0"
 # svelte-picker-bar 0.6.0 asks for the theme picker at ^0.3.0. 0.4.0 only adds options (a "follow this
-# device" choice, a cookie that is off here), so it is forced; remove this once a picker-bar release
+# device" choice, and a cookie beside localStorage, which the site uses), so it is forced; remove this once a picker-bar release
 # accepts ^0.4.0.
 overrides:
   "@lilydesignsystem/svelte-theme-picker": 0.4.0
