@@ -2,12 +2,3 @@ allowBuilds:
   esbuild: true
 # Refuse any package version published less than a day ago (value in minutes), as the main repository does.
 minimumReleaseAge: 1440
-# 2026-11-16: the Lily theme picker 0.4.0, taken the hour it was published, with the maintainer's
-# approval. Remove this exclusion once it is a day old (from 2026-11-17T17:41Z).
-minimumReleaseAgeExclude:
-  - "@lilydesignsystem/svelte-theme-picker@0.4.0"
-# svelte-picker-bar 0.6.0 asks for the theme picker at ^0.3.0. 0.4.0 only adds options (a "follow this
-# device" choice, and a cookie beside localStorage, which the site uses), so it is forced; remove this once a picker-bar release
-# accepts ^0.4.0.
-overrides:
-  "@lilydesignsystem/svelte-theme-picker": 0.4.0

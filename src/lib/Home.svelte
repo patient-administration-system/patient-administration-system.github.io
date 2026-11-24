@@ -25,9 +25,9 @@
     <p class="site-lead">{meta.introduction}</p>
     <div class="site-actions">
       <ActionLink href={actions.primary.href} class="site-button">{actions.primary.label}</ActionLink>
-      <ActionLink href={actions.secondary.href} class="site-button site-button-quiet"
-        >{actions.secondary.label}</ActionLink
-      >
+      <ActionLink href={actions.secondary.href} class="site-button site-button-quiet">
+        {actions.secondary.label}
+      </ActionLink>
     </div>
     <p class="site-translations">
       {m.translations}
@@ -35,8 +35,10 @@
         {#if index > 0}<span>{m.separator}&nbsp;</span>{/if}<a
           href={localePath(translation.locale, "") === "/" ? "/en-001/" : localePath(translation.locale, "")}
           lang={translation.locale}
-          dir={textDirection(translation.locale)}>{translation.name}</a
+          dir={textDirection(translation.locale)}
         >
+          {translation.name}
+        </a>
       {/each}
     </p>
   </div>

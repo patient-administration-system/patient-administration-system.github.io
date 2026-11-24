@@ -14,8 +14,8 @@ How this site supports several locales. It follows the rule `locales-for-global-
 | `ar-001`         | Copy of `ar-sa`                                  | العربية (العالم)        |
 | `cy-gb`          | Written by hand, first draft                     | Cymraeg (Prydain Fawr)  |
 | `cy-001`         | Copy of `cy-gb`                                  | Cymraeg (Byd)           |
-| `hi-in`          | Written by hand, first draft                     | हिन्दी (भारत)           |
-| `hi-001`         | Copy of `hi-in`                                  | हिन्दी (विश्व)          |
+| `hi-in`          | Written by hand, first draft                     | हिन्दी (भारत)            |
+| `hi-001`         | Copy of `hi-in`                                  | हिन्दी (विश्व)            |
 | `zh-cn`          | Written by hand, first draft, Simplified Chinese | 中文（中国）            |
 | `zh-001`         | Copy of `zh-cn`                                  | 中文（世界）            |
 

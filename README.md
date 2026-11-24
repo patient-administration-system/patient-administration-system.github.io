@@ -18,7 +18,7 @@ pnpm run dev
 ```sh
 pnpm run check && pnpm run lint && pnpm test
 pnpm run build && pnpm exec playwright test   # axe and 320-pixel reflow on every page, then each picker
-THEME_SWEEP=1 pnpm exec playwright test -g "every theme"   # axe on eight pages in all 63 themes; slow
+THEME_SWEEP=1 pnpm exec playwright test -g "every theme"   # axe on eight pages in all 65 themes; slow
 ```
 
 ## Publish it
@@ -46,7 +46,7 @@ Do not type a count into a page. Use `{{count:Measure name}}`, which fails the b
 - Say what is true of the main repository today. A page must not claim more than its README, `AI_STATEMENT.md` and `governance/path-to-production.md` do. The estimates on the path-to-production page live in `src/lib/readiness.ts` and must match that file. Quote no outcome figures until there are real ones.
 - Keep the fact that the system is not in use with real patients prominent, above all on comparison pages.
 - A comparison with a named product uses public sources that the page lists, states the date they were checked, and shows where this project falls short. Use no vendor logos. Recheck the sources when you change a page, and update `checked:`.
-- The default look is neutral, because this is not the website of any health service or government. The theme picker offers all 63 Lily themes, including NHS and GOV.UK ones, as the maintainer chose. Do not make one of those the default.
+- The default look is neutral, because this is not the website of any health service or government. The theme picker offers all 65 Lily themes, including NHS and GOV.UK ones, as the maintainer chose. Do not make one of those the default.
 
 ## Licence
 

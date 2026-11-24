@@ -199,8 +199,8 @@ test("every page's footer links to the privacy page, in its own language", async
   }
 });
 
-test("all 63 themes are published", () => {
-  expect(readdirSync("build/themes").filter((file) => file.endsWith(".css"))).toHaveLength(63);
+test("all 65 themes are published", () => {
+  expect(readdirSync("build/themes").filter((file) => file.endsWith(".css"))).toHaveLength(65);
 });
 
 // Slow, so it runs on request: THEME_SWEEP=1 pnpm exec playwright test -g "every theme".
